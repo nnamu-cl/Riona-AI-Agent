@@ -7,7 +7,10 @@
     "postbuild": "copyfiles -u 3 src/Agent/characters/*.json build/Agent/characters",
     "train-model": "tsc && node build/Agent/training/Model.js",
     "train:link": "tsc && node build/Agent/training/WebsiteScraping.js",
-    "train:audio": "tsc && node build/Agent/training/TrainWithAudio.js"
+    "train:audio": "tsc && node build/Agent/training/TrainWithAudio.js",
+    "docs:dev": "mkdocs serve -a 0.0.0.0:8000",
+    "docs:build": "mkdocs build --clean",
+    "docs:deploy": "mkdocs gh-deploy --strict"
   },
   "keywords": [],
   "author": "",
@@ -42,7 +45,6 @@
     "request-promise": "^4.2.6",
     "textract": "^2.5.0",
     "twitter-api-v2": "^1.19.0",
-    "typescript": "^5.7.3",
     "user-agents": "^1.1.416",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0",
@@ -57,7 +59,11 @@
     "@types/puppeteer": "^5.4.7",
     "@types/readline-sync": "^1.4.8",
     "@types/request": "^2.48.12",
+    "@types/request-promise": "^4.1.51",
     "@types/textract": "^2.4.5",
-    "@types/user-agents": "^1.0.4"
+    "@types/user-agents": "^1.0.4",
+    "typedoc": "^0.28.5",
+    "typedoc-plugin-markdown": "^4.6.4",
+    "typescript": "^5.8.3"
   }
 }

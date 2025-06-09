@@ -1,0 +1,66 @@
+site_name: Instagram AI Agent - Developer Documentation
+site_description: Comprehensive developer documentation for the Instagram AI Agent automation platform
+repo_url: https://github.com/david-patrick-chuks/Instagram-AI-Agent
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: purple
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: purple
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: getting-started/quick-start.md
+      - Installation: getting-started/installation.md
+      - Configuration: getting-started/configuration.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - AI Agent System: architecture/ai-agent.md
+      - Platform Clients: architecture/clients.md
+  - Development:
+      - Development Setup: development/setup.md
+      - Code Structure: development/code-structure.md
+      - Adding Features: development/adding-features.md
+  - API Reference:
+      - Core Functions: api/core.md
+      - Schemas: api/schemas.md
+  - Guides:
+      - Instagram Bot: guides/instagram-bot.md
+      - Training the AI: guides/training-ai.md
+      - Custom Characters: guides/custom-characters.md
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.highlight:
+      linenums: true
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - attr_list
+  - md_in_html
