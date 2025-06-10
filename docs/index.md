@@ -66,6 +66,11 @@ Train your AI agent with multiple content types:
 - **[How Scheduling and Delays Work](instagram-agent/scheduling-delays.md)** - Understanding the timing mechanisms that make the agent safe and human-like
 - **[Content Generation & Decision Making](instagram-agent/content-generation.md)** - How the agent decides what content to create, write, and post
 
+### Social Media Trender Agent (Frontend UI)
+- **[Authentication & Onboarding](social-trender/auth-onboarding.md)** - Complete user journey from landing page to launching their first agent (7 screens)
+- **[Main Application Interface](social-trender/main-interface.md)** - Dashboard, Settings, and Streamer Mode (3 core screens)
+- **[Safety & Monitoring](social-trender/safety-monitoring.md)** - Account health monitoring and risk management (1 safety screen)
+
 ### For New Developers
 - **[Quick Start](getting-started/quick-start.md)** - Get running fast
 - **[Installation Guide](getting-started/installation.md)** - Detailed setup instructions

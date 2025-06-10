@@ -35,6 +35,10 @@ nav:
       - Developer Introduction: instagram-agent/developer-introduction.md
       - How Scheduling and Delays Work: instagram-agent/scheduling-delays.md
       - Content Generation & Decision Making: instagram-agent/content-generation.md
+  - Social Media Trender Agent:
+      - Authentication & Onboarding: social-trender/auth-onboarding.md
+      - Main Application Interface: social-trender/main-interface.md
+      - Safety & Monitoring: social-trender/safety-monitoring.md
      
   - Architecture:
       - Overview: architecture/overview.md
