@@ -31,6 +31,11 @@ nav:
       - Quick Start: getting-started/quick-start.md
       - Installation: getting-started/installation.md
       - Configuration: getting-started/configuration.md
+  - Instagram Agent:
+      - Developer Introduction: instagram-agent/developer-introduction.md
+      - How Scheduling and Delays Work: instagram-agent/scheduling-delays.md
+      - Content Generation & Decision Making: instagram-agent/content-generation.md
+     
   - Architecture:
       - Overview: architecture/overview.md
       - AI Agent System: architecture/ai-agent.md

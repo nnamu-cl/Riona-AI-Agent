@@ -61,6 +61,11 @@ Train your AI agent with multiple content types:
 
 ## 📖 Documentation Sections
 
+### Instagram Agent Development
+- **[Developer Introduction](instagram-agent/developer-introduction.md)** - Complete developer guide and codebase map for the Instagram agent
+- **[How Scheduling and Delays Work](instagram-agent/scheduling-delays.md)** - Understanding the timing mechanisms that make the agent safe and human-like
+- **[Content Generation & Decision Making](instagram-agent/content-generation.md)** - How the agent decides what content to create, write, and post
+
 ### For New Developers
 - **[Quick Start](getting-started/quick-start.md)** - Get running fast
 - **[Installation Guide](getting-started/installation.md)** - Detailed setup instructions
