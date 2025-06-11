@@ -17,6 +17,7 @@ Deep dive into the core Instagram automation system:
 - **[Developer Introduction](instagram-agent/developer-introduction.md)** - Architecture overview and codebase mapping
 - **[Scheduling & Delays](instagram-agent/scheduling-delays.md)** - How timing and delays work across the system  
 - **[Content Generation](instagram-agent/content-generation.md)** - AI-powered comment and content creation
+- **[Preset Scheduling System](instagram-agent/preset-scheduling-system.md)** ⭐ **NEW** - Smart wake/sleep automation with preset time windows
 
 ### **🎯 [Social Media Trender](social-trender/auth-onboarding.md)**
 Complete UI/UX specifications for the frontend interface:
