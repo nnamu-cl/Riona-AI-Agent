@@ -1,45 +1,33 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import logger from "../config/logger";
-import { geminiApiKeys } from "../secret";
-import { handleError } from "../utils";
+// import { handleError } from "../utils"; // handleError might need to be adapted or replaced for OpenRouter
 import { InstagramCommentSchema } from "./schema";
 import fs from "fs";
 import path from "path";
 import * as readlineSync from "readline-sync";
+import { generateContent as generateContentOpenRouter } from "../services/OpenRouterService";
+import { OPENROUTER_DEFAULT_MODEL } from "../secret";
 
 export async function runAgent(schema: InstagramCommentSchema, prompt: string): Promise<any> {
-    let currentApiKeyIndex = 0;  
-    let geminiApiKey = geminiApiKeys[currentApiKeyIndex];
-
-    if (!geminiApiKey) {
-        logger.error("No Gemini API key available.");
-        return "No API key available.";
-    }
-    const generationConfig = {
-        responseMimeType: "application/json",
-        responseSchema: schema,
-    };
-
-    const googleAI = new GoogleGenerativeAI(geminiApiKey);
-    const model = googleAI.getGenerativeModel({
-        model: "gemini-2.0-flash",
-        generationConfig,
-    });
-
     try {
-        const result = await model.generateContent(prompt);
+        // The modelId can be passed explicitly or use the default from secrets
+        const modelId = OPENROUTER_DEFAULT_MODEL; // Or allow passing it as a parameter to runAgent
 
-        if (!result || !result.response) {
-            logger.info("No response received from the AI model. || Service Unavailable");
-            return "Service unavailable!";
+        const data = await generateContentOpenRouter(prompt, modelId, { schema });
+        
+        if (!data) {
+            logger.info("No response received from the AI model via OpenRouter. || Service Unavailable");
+            // Consider returning a more specific error or letting the error from generateContentOpenRouter propagate
+            return "Service unavailable or no data!";
         }
-
-        const responseText = result.response.text();
-        const data = JSON.parse(responseText);
-
+        
         return data;
     } catch (error) {
-        await handleError(error, currentApiKeyIndex, schema, prompt, runAgent);
+        logger.error(`Error in runAgent using OpenRouter: ${(error as Error).message}`);
+        // Re-throw the error or return a more structured error object
+        // The old handleError was specific to Gemini key rotation, which is not directly applicable here.
+        // For now, we'll let the error propagate or return a generic message.
+        // Depending on requirements, a new error handling strategy for OpenRouter could be implemented.
+        throw error; // Or return an error object: return { error: true, message: (error as Error).message };
     }
 }
 

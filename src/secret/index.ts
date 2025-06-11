@@ -1,6 +1,11 @@
 import dotenv from "dotenv";
 dotenv.config();
 
+export const OPENROUTER_API_KEY: string = process.env.OPENROUTER_API_KEY || "";
+export const OPENROUTER_SITE_URL: string = process.env.OPENROUTER_SITE_URL || "http://localhost:3000";
+export const OPENROUTER_APP_NAME: string = process.env.OPENROUTER_APP_NAME || "MyRionaApp";
+export const OPENROUTER_DEFAULT_MODEL: string = process.env.OPENROUTER_DEFAULT_MODEL || "google/gemini-flash-1.5";
+
 export const IGusername: string = process.env.IGusername || "default_IGusername";
 export const IGpassword: string = process.env.IGpassword || "default_IGpassword";
 export const Xusername: string = process.env.Xusername || "default_Xusername";
