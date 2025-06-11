@@ -35,11 +35,18 @@ nav:
       - Developer Introduction: instagram-agent/developer-introduction.md
       - How Scheduling and Delays Work: instagram-agent/scheduling-delays.md
       - Content Generation & Decision Making: instagram-agent/content-generation.md
+      - Preset Scheduling System: instagram-agent/preset-scheduling-system.md
   - Social Media Trender Agent:
       - Authentication & Onboarding: social-trender/auth-onboarding.md
       - Main Application Interface: social-trender/main-interface.md
       - Safety & Monitoring: social-trender/safety-monitoring.md
-     
+  - Testing System:
+      - Overview: testing/overview.md
+      - Adding New Tests: testing/adding-tests.md
+      - Unit Testing Guide: testing/unit-testing.md
+      - Integration Testing: testing/integration-testing.md
+      - E2E Testing Guide: testing/e2e-testing.md
+      - Debugging Tests: testing/debugging-tests.md
   - Architecture:
       - Overview: architecture/overview.md
       - AI Agent System: architecture/ai-agent.md
