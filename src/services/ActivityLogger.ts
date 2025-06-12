@@ -88,10 +88,10 @@ export class ActivityLogger {
         });
       } else {
         // Update existing record
-        await supabaseService.update('agent_tracking', 
-          { 
-            status: 'active', 
-            started_at: new Date().toISOString() 
+        await supabaseService.update('agent_tracking',
+          {
+            status: 'active',
+            started_at: new Date().toISOString()
           },
           { agent_id: agentId }
         );
@@ -109,10 +109,11 @@ export class ActivityLogger {
    */
   static async stopAgent(agentId: string): Promise<void> {
     try {
+      // USE SERVICE ROLE FOR WRITES
       await supabaseService.update('agent_tracking',
-        { 
-          status: 'stopped', 
-          stopped_at: new Date().toISOString() 
+        {
+          status: 'stopped',
+          stopped_at: new Date().toISOString()
         },
         { agent_id: agentId }
       );
