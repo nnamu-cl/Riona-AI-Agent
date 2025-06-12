@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import { geminiApiKeys } from "../secret";
+// import { geminiApiKeys } from "../secret"; // No longer needed here
 import logger from "../config/logger";
 
 
@@ -70,33 +70,26 @@ export async function loadCookies(cookiesPath: string): Promise<any[]> {
     }
 }
 
-// Function to get the next API key in the list
-export const getNextApiKey = (currentApiKeyIndex: number) => {
-    currentApiKeyIndex = (currentApiKeyIndex + 1) % geminiApiKeys.length; // Circular rotation of API keys
-    return geminiApiKeys[currentApiKeyIndex];
-};
+// Removed getNextApiKey function as OpenRouter uses a single key and handles its own retries/fallbacks.
 
-
-export async function handleError(error: unknown, currentApiKeyIndex: number, schema: any, prompt: string, runAgent: (schema: any, prompt: string) => Promise<string>): Promise<string> {
+// The old handleError was tightly coupled with Gemini API key rotation and the old runAgent structure.
+// OpenRouterService.ts now has its own error handling for API calls.
+// If a more generic error handler is needed for other parts of the application,
+// this function could be repurposed or a new one created.
+// For now, I'm commenting it out as its previous functionality is largely obsolete
+// in the context of AI calls now going through OpenRouterService.
+/*
+export async function handleError(error: unknown, ...args: any[]): Promise<string> {
+    // Basic error logging
     if (error instanceof Error) {
-        if (error.message.includes("429 Too Many Requests")) {
-            logger.error(`---GEMINI_API_KEY_${currentApiKeyIndex + 1} limit exhausted, switching to the next API key...`);
-            const geminiApiKey = getNextApiKey(currentApiKeyIndex);
-            const currentApiKeyName = `GEMINI_API_KEY_${currentApiKeyIndex + 1}`;
-            return runAgent(schema, prompt);
-        } else if (error.message.includes("503 Service Unavailable")) {
-            logger.error("Service is temporarily unavailable. Retrying...");
-            await new Promise(resolve => setTimeout(resolve, 5000));
-            return runAgent(schema, prompt);
-        } else {
-            logger.error(`Error generating training prompt: ${error.message}`);
-            return `An error occurred: ${error.message}`;
-        }
+        logger.error(`An error occurred: ${error.message}`);
+        return `An error occurred: ${error.message}`;
     } else {
         logger.error("An unknown error occurred:", error);
         return "An unknown error occurred.";
     }
 }
+*/
 
 
 export function setup_HandleError(error: unknown, context: string): void {

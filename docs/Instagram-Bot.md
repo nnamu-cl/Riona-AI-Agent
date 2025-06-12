@@ -1,19 +1,29 @@
-# Instagram Bot Guide
+# Instagram Bot Guide 📱
 
-This guide provides all the necessary steps for configuring and running the Instagram Bot.
+**⚠️ Note**: This guide has been moved and expanded. Please use the new comprehensive guide at [Instagram Bot Guide](guides/instagram-bot.md).
 
-## 1. Prerequisites & File Structure
+## Quick Setup
 
-Before running the bot, ensure the project has the following structure and files:
+For immediate setup, follow these essential steps:
+
+### 1. Prerequisites & File Structure
+
+Ensure your project has the following structure:
 
 ```
-├── .env              # Environment variables including IGusername and IGpassword
-├── cookies/          # Directory for storing session cookies (Instagramcookies.json)
-└── src/
-    ├── secret/
-    │   └── index.ts  # Exports Instagram credentials (IGusername and IGpassword)
-    └── Agent/
-        └── training/ # Directory containing training data files (PDFs, MP3s, TXT, URLs)
+Instagram-AI-Agent/
+├── .env                    # Environment variables (IGusername, IGpassword, etc.)
+├── cookies/               # Directory for session cookies
+│   └── Instagramcookies.json
+├── src/
+│   ├── secret/
+│   │   └── index.ts       # Exports Instagram credentials  
+│   ├── Agent/
+│   │   ├── characters/    # AI personality definitions
+│   │   └── training/      # Training data files (PDFs, MP3s, TXT, URLs)
+│   └── client/
+│       └── Instagram.ts   # Main Instagram automation logic
+└── logs/                  # Application logs
 ```
 
 ## 2. Setup Checklist

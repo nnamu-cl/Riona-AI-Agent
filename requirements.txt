@@ -1,0 +1,30 @@
+#
+# ──────────────  Documentation stack  ──────────────
+# Tested on Python 3.12 (June 2025) ─ pinning
+# only the major.minor version so patch upgrades
+# (bug-fixes, security) still flow in automatically.
+#
+
+# Core site generator
+mkdocs~=1.6         # last stable: 1.6.1, Aug 30 2024 :contentReference[oaicite:0]{index=0}
+
+# Theme (includes first-party plugins like search, offline, social cards, etc.)
+mkdocs-material~=9.6   # last stable: 9.6.14, May 13 2025 :contentReference[oaicite:1]{index=1}
+
+# Markdown extension bundle that gives you `pymdownx.*`
+pymdown-extensions~=10.15   # Apr 27 2025 :contentReference[oaicite:2]{index=2}
+
+# ─────── Plugins you already reference (or almost certainly will) ───────
+mkdocs-git-revision-date-localized-plugin~=1.4   # May 28 2025 :contentReference[oaicite:3]{index=3}
+mkdocs-minify-plugin~=0.8                        # Jan 29 2024 :contentReference[oaicite:4]{index=4}
+
+# ─────── Commonly-used optional plugins — uncomment as needed ───────
+# mkdocs-awesome-pages-plugin~=2.10        # nav ordering without huge YAML
+# mkdocs-redirects~=1.2                    # maintain old links
+# mkdocs-include-markdown-plugin~=6.0      # embed external MD snippets
+# mkdocs-awesome-nav~=3.1                  # declarative nav trees (2025-05-18) :contentReference[oaicite:5]{index=5}
+# mike~=2.1                                # versioned docs
+
+# ─────── Extras for Material features you may enable ───────
+# pillow~=10.3       # needed if you enable the [imaging] extra
+# cairosvg~=2.7      #                                   ──〃──
