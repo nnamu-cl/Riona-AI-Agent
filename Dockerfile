@@ -1,8 +1,11 @@
 # STAGE 1: Dependencies and Build
 # Use an official Node.js runtime. 'slim' variants are Debian-based, offering a good balance
 # of size and compatibility for native dependencies often required by Puppeteer/Playwright.
-# Ensure Node 18 is compatible with all your project dependencies.
-FROM node:18-slim AS builder
+# Ensure Node 20 is compatible with all your project dependencies.
+FROM node:20-slim AS builder
+
+# Update npm to latest version
+RUN npm install -g npm@latest
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -27,7 +30,7 @@ RUN npm run postbuild
 
 # STAGE 2: Production Runner
 # Start from a fresh Node.js slim image for the production environment
-FROM node:18-slim AS runner
+FROM node:20-slim AS runner
 
 # Set the environment to production
 ENV NODE_ENV=production
@@ -38,7 +41,7 @@ ENV NODE_ENV=production
 WORKDIR /usr/src/app
 
 # Install OS-level dependencies required by Puppeteer and Playwright to run headless browsers.
-# This list is for Debian-based systems (like node:18-slim).
+# This list is for Debian-based systems (like node:20-slim).
 # For the most up-to-date list, always refer to the official Puppeteer and Playwright documentation.
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -89,6 +92,8 @@ COPY --from=builder /usr/src/app/build ./build
 COPY --from=builder /usr/src/app/node_modules ./node_modules
 # 3. Copy package.json for metadata (optional, but good practice)
 COPY package.json .
+# 4. Copy .env files for configuration
+COPY --from=builder /usr/src/app/.env* ./
 
 # Expose the port your application listens on.
 # Your app uses process.env.PORT || 3000. This informs Docker the container listens on this port.
