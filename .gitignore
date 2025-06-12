@@ -127,3 +127,12 @@ public/build
 # Plop js template files
 .plop-templates
 logged_in.png
+
+*venv*
+
+# MkDocs
+/site/
+.mkdocs/
+
+# Node
+node_modules/
