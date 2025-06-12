@@ -1,0 +1,44 @@
+# Node.js
+node_modules
+build
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+!/.env.example
+
+# Logs
+*.log
+logs
+*debug.log*
+*error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor specific
+.vscode
+.idea
+
+# Git
+.git
+.gitignore
+
+# Documentation & Config files not needed in runtime
+docs
+README.md
+DOCKER_PRODUCTION_GUIDE.md
+AGENT_API_GUIDE.md
+mkdocs.yml
+jest.config.js
+# tsconfig.json is needed by the builder stage, but not the runner.
+# The multi-stage build handles this by not copying it to the final runner image.
+
+# Other temporary or local files
+tmp
+temp
